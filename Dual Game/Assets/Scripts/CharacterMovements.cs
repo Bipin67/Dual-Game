@@ -6,29 +6,12 @@ namespace Assets.Scripts
     {
         //Public instances
         public float Speed = 10f;
-        public  Transform BulletSpawnPoint;
-        public GameObject BulletPrefab;
-        public float BulletSpeed = 30f;
-        
-        void Start()
-        {
-            
-        }
-
+     
         void Update()
         {
             //// Methods Calling
             //Gyroscope Control method calling. 
             AccelerationInputs();
-
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                var bullet = Instantiate(BulletPrefab, BulletSpawnPoint.position, BulletSpawnPoint.rotation);
-                bullet.GetComponent<Rigidbody2D>().velocity = BulletSpawnPoint.up * BulletSpeed;
-            }
-
-
-
         }
 
         public void AccelerationInputs()
