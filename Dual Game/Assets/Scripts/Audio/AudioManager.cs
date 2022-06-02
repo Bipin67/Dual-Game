@@ -4,13 +4,13 @@ namespace Assets.Scripts.Audio
 {
     public class AudioManager : MonoBehaviour
     {
+        //Public Instances
         public static AudioManager Instance;
-        [SerializeField] private AudioSource _music, _bulletHit, _bulletFire;
-        // public AudioClip BulletFireSound;
+        public AudioSource MusicSource, FireSource;
 
-        void Awake()
+         private void Awake()
         {
-            if (Instance = null)
+            if (Instance == null)
             {
                 Instance = this;
                 DontDestroyOnLoad(gameObject);
@@ -20,29 +20,47 @@ namespace Assets.Scripts.Audio
                 Destroy(gameObject);
             }
         }
-
-        public void PlaySound(AudioClip clip)
+/// <summary>
+/// Playing  music in the game
+/// The background music doesn't change in whole game.
+/// </summary>
+/// <param name="music"></param>
+        public void PLayMusic(AudioClip music)
         {
-            _bulletFire.PlayOneShot(clip);
-            // _bulletHit.PlayOneShot(clip);
+            //Music Source doesn't change in whole game.
+            MusicSource.clip = music;
+            //Playing the music 
+            MusicSource.Play();
         }
-
     
-        // public void PlaySoundEnum(clipName soundName)
-        // {
-        //     switch (soundName)
-        //     {
-        //         case clipName.bulletfire:
-        //             _bulletFire.PlayOneShot(BulletFireSound);
-        //             break;
-        //     }
-        // }
-
+        /// <summary>
+        /// Parameterized method with AudioClip parameter named fire which is played only at once.
+        /// Fire sound in the game is played once it is called. 
+        /// </summary>
+        /// <param name="fire"></param>
+        public void FireSound(AudioClip fire)
+        {
+            //Playing Fire Sound once.
+            FireSource.PlayOneShot(fire);          
+        }
+        
+        
+    /// <summary>
+    /// mute and unmute Audio music.
+    /// </summary>
+        public void ToggleMusic()
+        {
+            MusicSource.mute = !MusicSource.mute;
+        }
+        
+        /// <summary>
+        /// Mute and unmute Audio sfxx
+        /// </summary>
+        public void ToggleSfx()
+        {
+            FireSource.mute = !FireSource.mute;
+        }
     }
 }
 
-// public enum clipName
-// {
-//     bulletfire,
-//     gamecomplete
-// }
+

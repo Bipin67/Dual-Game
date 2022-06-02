@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Settings_Menu : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // Public instances
+    public GameObject SettingsPanel;
+    
+    
     void Start()
     {
-        
+     SettingsPanel.gameObject.SetActive(false);    
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  
 }
