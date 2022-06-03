@@ -8,6 +8,7 @@ namespace Assets.Scripts.Player
         public AudioClip Fire;
         [SerializeField] private Transform _firepoint;
         [SerializeField] private GameObject bullet;
+        private float _bulletSpeed = 10f;
 
         void Update()
         {
@@ -21,7 +22,7 @@ namespace Assets.Scripts.Player
         {
             AudioManager.Instance.FireSound(Fire);
             GameObject firedBullet = Instantiate(bullet, _firepoint.position,_firepoint.rotation);
-            firedBullet.GetComponent<Rigidbody2D>().velocity = _firepoint.up * 10f;
+            firedBullet.GetComponent<Rigidbody2D>().velocity = _firepoint.up * _bulletSpeed;
         }
     }
 }

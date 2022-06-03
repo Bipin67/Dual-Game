@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Others
 {
     public class BulletDestroy : MonoBehaviour
     {
@@ -9,7 +9,5 @@ namespace Assets.Scripts
         {
             Destroy(gameObject,3f);
         }
-
-   
     }
 }

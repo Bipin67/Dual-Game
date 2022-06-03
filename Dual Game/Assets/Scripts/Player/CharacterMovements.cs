@@ -7,13 +7,19 @@ namespace Assets.Scripts
         //Public instances
         public float Speed = 10f;
      
+        /// <summary>
+        /// Calling a method to give the input in game.
+        /// </summary>
         void Update()
         {
             //// Methods Calling
             //Gyroscope Control method calling. 
             AccelerationInputs();
         }
-
+    
+        /// <summary>
+        /// Moving player towards x and y direction using the gyroscope input.
+        /// </summary>
         public void AccelerationInputs()
         {
             ////taking inputs for gyroscope.
