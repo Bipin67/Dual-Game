@@ -41,11 +41,14 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Backgroun
-    uniqueID: 2204829591
-    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Clouds
+    uniqueID: 245045549
+    locked: 0
+  - name: Background
+    uniqueID: 2204829591
     locked: 0
   - name: Bottom
     uniqueID: 3178095981

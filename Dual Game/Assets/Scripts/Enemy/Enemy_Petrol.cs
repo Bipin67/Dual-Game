@@ -17,7 +17,10 @@ namespace Assets.Scripts.Enemy
         void Update()
         {
             //if the enemy is facing towards right then it will move towards the right direction with the speed of _moveSpeed.
-            if (IsFacingRight())
+            bool isFacingRight = IsFacingRight();
+            Debug.Log("Is facing right: ");
+            Debug.Log(isFacingRight);
+            if (isFacingRight)
             {
                 _rb.velocity = new Vector2(_moveSpeed, 0f);
             }
@@ -36,6 +39,7 @@ namespace Assets.Scripts.Enemy
         private void OnTriggerExit2D(Collider2D collision)
         {
             // On hitting the collider it will change the x position.
+            if (collision.transform.tag != "Stopper") return;
             transform.localScale = new Vector2(-(Mathf.Sign(_rb.velocity.x)), transform.localScale.y);
             Debug.Log("Enemy is collided.");
 

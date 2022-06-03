@@ -24,7 +24,7 @@ namespace Assets.Scripts
             //moving players to wards x direction.
             transform.Translate(x * Speed* Time.deltaTime,0,0);
             //moving player towards y direction. 
-            transform.Translate(0,y * Speed * 1.5f * Time.deltaTime,0);
+            transform.Translate(0,y * Speed * 2f * Time.deltaTime,0);
         }
     }
 }
