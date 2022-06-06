@@ -54,7 +54,7 @@ namespace Assets.Scripts.Audio
         }
         
         /// <summary>
-        /// Mute and unmute Audio sfxx
+        /// Mute and unmute Audio sfx
         /// </summary>
         public void ToggleSfx()
         {

@@ -41,7 +41,7 @@ namespace Assets.Scripts.Enemy
             transform.localScale = new Vector2(-(Mathf.Sign(_rb.velocity.x)), transform.localScale.y);
             Debug.Log("Enemy is collided.");
         }
-
+    
         void OnTriggerEnter2D(Collider2D col)
         {
             //If the tag named bullet hits the enemy then the message will popped.

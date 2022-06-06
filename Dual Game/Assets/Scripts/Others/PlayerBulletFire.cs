@@ -52,15 +52,19 @@ namespace Assets.Scripts.Others
         /// </summary>
          public void FireBullet()
         {
+            //if teh ammo amount is greater than 0 than fire the bullet with sound  and decrease the ammo amount.
              if ( _ammoAmount>0)
              {
                  //Playing  the bullet fire sound.
                  AudioManager.Instance.FireSound(Fire);
+                 
                  //Firing the _bullet from _firePoint with the speed of _bulletSpeed at up direction.
                  GameObject firedBullet = Instantiate(_bullet, _firePoint.position,_firePoint.rotation);
                  firedBullet.GetComponent<Rigidbody2D>().velocity = _firePoint.up * _bulletSpeed;
+                 
                  //Decreasing the _ammoAmount by 1 per fire clicked.
                  _ammoAmount -= 1;
+                 
                  //Disabling the fired bullet image.
                  _ammo[_ammoAmount].gameObject.SetActive(false);
              }
