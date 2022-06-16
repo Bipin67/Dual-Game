@@ -9,5 +9,6 @@ namespace Assets.Scripts.Others
         {
             Destroy(gameObject,3f);
         }
+
     }
 }

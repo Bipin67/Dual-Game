@@ -5,8 +5,9 @@ namespace Assets.Scripts
     public class CharacterMovements : MonoBehaviour
     {
         //Public instances
-        public float Speed = 10f;
-     
+        public float Speed = 20f;
+        // private Vector3 _moveVector;
+
         /// <summary>
         /// Calling a method to give the input in game.
         /// </summary>
@@ -31,6 +32,8 @@ namespace Assets.Scripts
             transform.Translate(x * Speed* Time.deltaTime,0,0);
             //moving player towards y direction. 
             transform.Translate(0,y * Speed * 2f * Time.deltaTime,0);
+            // _moveVector.x = Input.GetAxisRaw("Horizontal") * Speed;
+
         }
     }
 }

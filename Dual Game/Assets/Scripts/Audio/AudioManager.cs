@@ -20,11 +20,11 @@ namespace Assets.Scripts.Audio
                 Destroy(gameObject);
             }
         }
-/// <summary>
-/// Playing  music in the game
-/// The background music doesn't change in whole game.
-/// </summary>
-/// <param name="music"></param>
+        /// <summary>
+        /// Playing  music in  game
+        /// The background music doesn't change in whole game.
+         /// </summary>
+        /// <param name="music"></param>
         public void PLayMusic(AudioClip music)
         {
             //Music Source doesn't change in whole game.

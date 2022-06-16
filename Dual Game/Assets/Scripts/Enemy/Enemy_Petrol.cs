@@ -33,7 +33,7 @@ namespace Assets.Scripts.Enemy
             //Epsilon is very very low value ==0.0001
             return transform.localScale.x > Mathf.Epsilon;
         }
-
+    
         private void OnTriggerExit2D(Collider2D collision)
         {
             // On hitting the collider it will change the x position.
