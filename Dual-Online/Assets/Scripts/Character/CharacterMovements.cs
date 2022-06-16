@@ -1,36 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class CharacterMovements : MonoBehaviour
 {
     //Public instances
     public float Speed;
+    private PhotonView view;
+    private Rigidbody2D _rb;
+    private float _moveX;
+    private float _moveY;
 
-    /// <summary>
-    /// Calling a method to give the input in game.
-    /// </summary>
+    void Start()
+    {
+        view = GetComponent<PhotonView>();
+        _rb = GetComponent<Rigidbody2D>();
+    }
+
+    /// <summary>Calling a method to give the input in game.</summary>
     void Update()
     {
-        //// Methods Calling
-        //Gyroscope Control method calling. 
-        AccelerationInputs();
+        if (view.IsMine)
+        {
+            AccelerationInputs();
+        }
     }
-    
-    /// <summary>
-    /// Moving player towards x and y direction using the gyroscope input.
-    /// </summary>
-    void AccelerationInputs()
+
+    /// <summary>Taking Acceleration inputs for the gyroscope movements of the player. Fixing the X  & Y movements of the player</summary>
+    public void AccelerationInputs()
     {
-        ////taking inputs for gyroscope.
-        float x = Input.acceleration.x;
-        float y = Input.acceleration.y;
-            
-        ////moving characters according to inputs.
-        //moving players to wards x direction.
-        transform.Translate(x * Speed* Time.deltaTime,0,0);
-        //moving player towards y direction. 
-        transform.Translate(0,y * Speed * 2f * Time.deltaTime,0);
+        //Taking acceleration inputs 
+        _moveX = Input.acceleration.x* Speed;
+        _moveY = Input.acceleration.y * Speed;
+        
+        transform.position = new Vector2(Mathf.Clamp(transform.position.x, -7.5f, 7.5f), Mathf.Clamp(transform.position.y,-4f,4f));
+    }
+
+    void FixedUpdate()
+    {
+        _rb.velocity = new Vector2(_moveX, _moveY);
     }
 }
 

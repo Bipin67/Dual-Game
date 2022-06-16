@@ -4,18 +4,43 @@ namespace Assets.Scripts.Character
 {
     public class CharacterManager : MonoBehaviour
     {
-        public GameObject SelectedSkin;
-        public GameObject Player;
-
-        private Sprite _playerSprite;
+        private static CharacterManager _instance { get; set; }
+        private Player _humanPlayer;
+        
+        /// <summary> Making The Instance of CharacterManager.</summary>
+        public static CharacterManager GetInstance()
+        {
+            return _instance == null ? FindObjectOfType<CharacterManager>() : _instance;
+        }
         
         /// <summary>
-        /// Loading the Selected character on Game-Object Player..
+        /// Assigning the value of the _humanPlayer.
         /// </summary>
-        void Start()
+        /// <param name="player"></param>
+        public void SetPlayer(Player player)
         {
-            _playerSprite = SelectedSkin.GetComponent<SpriteRenderer>().sprite;
-            Player.GetComponent<SpriteRenderer>().sprite = _playerSprite;
+            _humanPlayer = player;
         }
+
+        public void RemovePlayer()
+        {
+            _humanPlayer = null;
+        }
+
+        #region Player Actions
+
+        public void FireBullet()
+        {
+            if (_humanPlayer == null) return;
+            _humanPlayer.FireBullet();
+        }
+
+        public void ReloadBullet()
+        {
+            if (_humanPlayer == null) return;
+            _humanPlayer.ReloadTheBullet();
+        }
+
+        #endregion
     }
 }
