@@ -10,15 +10,19 @@ public class Server_Connection : MonoBehaviourPunCallbacks
     void Start()
     {
         PhotonNetwork.ConnectUsingSettings();
+        PhotonNetwork.AutomaticallySyncScene = true;
     }
 
     public override void OnConnectedToMaster()
     {
         PhotonNetwork.JoinLobby();
+        PhotonNetwork.AutomaticallySyncScene = true;
     }
 
     public override void OnJoinedLobby()
     {
+        PhotonNetwork.AutomaticallySyncScene = true;
         SceneManager.LoadScene("HomeScene");
+        Debug.Log("MY id is : "+PhotonNetwork.LocalPlayer.UserId);
     }
 }

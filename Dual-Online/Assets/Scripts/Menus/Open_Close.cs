@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Open_Close : MonoBehaviour
 {
@@ -26,5 +27,10 @@ public class Open_Close : MonoBehaviour
     public void Close()
     {
         Panels.gameObject.SetActive(false);
+    }
+
+    public void ChangeScenes()
+    {
+        SceneManager.LoadScene("OfflIneGameScene");
     }
 }

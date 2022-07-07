@@ -1,7 +1,7 @@
 using Assets.Scripts.Audio;
 using UnityEngine;
 
-namespace Assets.Scripts.Others
+namespace Assets.Scripts.Player
 {
     public class PlayerBulletFire : MonoBehaviour
     {

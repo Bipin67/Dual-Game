@@ -22,7 +22,7 @@ TextureImporter:
     second: Kit Pixel Art_5
   - first:
       213: -2280545080031471786
-    second: Kit Pixel Art_6
+    second: Kit Pixel Art_
   - first:
       213: 3903280843776128250
     second: Kit Pixel Art_7
@@ -388,7 +388,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kit Pixel Art_6
+      name: Kit Pixel Art_
       rect:
         serializedVersion: 2
         x: 1172
@@ -733,7 +733,7 @@ TextureImporter:
         height: 65
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 5, y: 5, z: 5, w: 5}
       outline: []
       physicsShape: []
       tessellationDetail: 0
